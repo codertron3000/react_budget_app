@@ -6,6 +6,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Budget from './components/Budget';
 
 // Add code to import the other components here under
+import Remaining from './components/Remaining';
+import ExpenseTotal from './components/ExpenseTotal';
+import ExpenseList from './components/ExpenseList'
+import ExpenseItem from './components/ExpenseItem'
+import AllocationForm from './components/AllocationForm'
+
 
 
 import { AppProvider } from './context/AppContext';
@@ -17,26 +23,53 @@ const App = () => {
                     <div className='row mt-3'>
                         {
                             /* Add Budget component here */
+                            <div className='col-sm'>
+                                <Budget />  
+                            </div>
                         }        
 
                         {
                             /* Add Remaining component here*/
+                            <div className='col-sm'>
+                                <Remaining />
+                            </div>
                         }        
-
+                   
                         {
                             /* Add ExpenseTotal component here */
+                            <div className='col-sm'>
+                                <ExpenseTotal />
+                            </div>
                         }        
-                       
+                    </div>
+
+                                         
                         {
                             /* Add ExpenseList component here */
+                            <div className='col'>
+                                <div className='row'>
+                                    <h1>Allocation</h1>
+                                    <ExpenseList />
+                                </div>
+                            </div>
                         }         
 
                         {
-                            /* Add ExpenseItem component here */
-                        }        
+                        /* Add ExpenseItem component here */
+                            <div className='col'>
+                                <ExpenseItem />
+                            </div>
+                        }     
+            
+                        <div className='row mt-3'>   
+                    
 
                         {
                             /* Add AllocationForm component here under */
+                            <div className='col-sm'>
+                                <h1>Change Allocation</h1>
+                                <AllocationForm />
+                            </div>
                         }        
 
                 </div>
