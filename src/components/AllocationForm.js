@@ -7,31 +7,39 @@ const AllocationForm = (props) => {
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
     const [action, setAction] = useState('');
-    // const [currency, setCurrency] = useState('£')
+
+    const updateCurrency = currency =>{
+        dispatch({
+            type: 'CHG_CURRENCY',
+            payload: currency,
+        });
+    }
 
     const submitEvent = () => {
 
-            if(cost > remaining) {
-                alert("The value cannot exceed remaining funds  £"+remaining);
-                setCost("");
-                return;
-            }
+        if(cost > remaining) {
+            alert("The value cannot exceed remaining funds  £"+remaining);
+            setCost("");
+            return;
+        }
 
         const expense = {
             name: name,
             cost: parseInt(cost),
         };
+
         if(action === "Reduce") {
             dispatch({
                 type: 'RED_EXPENSE',
                 payload: expense,
             });
-        } else {
-                dispatch({
-                    type: 'ADD_EXPENSE',
-                    payload: expense,
-                });
-            }
+        } if(action === "Add"){
+            dispatch({
+                type: 'ADD_EXPENSE',
+                payload: expense,
+            });
+        } 
+        
     };
 
     return (
@@ -62,7 +70,7 @@ const AllocationForm = (props) => {
                     <div className="input-group-prepend" style={{ marginLeft: '2rem' }}>
                         <label className="input-group-text" htmlFor="inputGroupSelect03">Currency</label>
                     </div>
-                    <select className="custom-select" id="inputGroupSelect03" onChange={(event) => setCurrency(event.target.value)}>
+                    <select className="custom-select" id="inputGroupSelect03" onChange={(event) => updateCurrency(event.target.value)}>
                         <option defaultValue value="£" name="pound">£ Pound</option>
                         <option value="$" name="dollar">$ Dollar</option>
                         <option value="€" name="euro">€ Euro</option>
