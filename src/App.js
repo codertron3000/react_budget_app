@@ -56,9 +56,9 @@ const App = () => {
 
                         {
                         /* Add ExpenseItem component here */
-                            <div className='col'>
-                                <ExpenseItem />
-                            </div>
+                            // <div className='col'>
+                            //     <ExpenseItem />
+                            // </div>
                         }     
             
                         <div className='row mt-3'>   
